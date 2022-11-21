@@ -6,6 +6,8 @@ tag: user.wyrm
     user.mouse_wake()
     user.history_enable()
     user.talon_mode()
+    user.wake_event()
+
 ^talon sleep all [<phrase>]$:
     user.switcher_hide_running()
     user.history_disable()
@@ -14,8 +16,13 @@ tag: user.wyrm
     user.mouse_sleep()
     speech.disable()
     user.engine_sleep()
-^talon sleep [<phrase>]$: #speech.disable()
-^talon wake$: speech.enable()
+    user.sleep_event()
 
-hello world:
-    insert("hi there")
+^talon sleep [<phrase>]$:
+    speech.disable()
+    user.sleep_event()
+
+^talon wake$:
+    speech.enable()
+    user.wake_event()
+

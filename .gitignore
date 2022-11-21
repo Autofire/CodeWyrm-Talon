@@ -5,3 +5,6 @@ __pycache__
 # Locally generated
 /settings
 .vscode/settings.json
+
+# Private or local assets
+[Ll]ocal/

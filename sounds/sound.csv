@@ -1,0 +1,12 @@
+blip.wav,Unused
+delete.wav,Text is deleted/cut
+error.wav,Something goes wrong during refresh
+mode-cmd.wav,Switching to command mode
+mode-imm.wav,Switching to immediate (insert/replace) modes
+mode-vis.wav,Switching to visual mode
+paste.wav,Text is pasted/put
+refresh.wav,Refreshing code or other data
+shift-on.wav,Disabling language support
+shift-off.wav,Enabling language support
+write.wav,File is saved
+yank.wav,Text is copied/yanked
