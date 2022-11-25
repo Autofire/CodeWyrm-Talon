@@ -2,11 +2,11 @@ from .lib.delegate import Delegate
 from talon import Module
 
 class Events():
-    def Init():
+    def Setup():
         Events.wake = Delegate()
         Events.sleep = Delegate()
 
-Events.Init()
+Events.Setup()
 
 mod = Module()
 
