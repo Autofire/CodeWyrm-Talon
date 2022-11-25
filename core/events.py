@@ -1,11 +1,18 @@
-from .lib.delegate import Delegate
-from talon import Module
+from ..lib.delegate import Delegate
+from talon import Module, app
 
 class Events():
-    def Setup():
-        Events.wake = Delegate()
-        Events.sleep = Delegate()
 
+    _setup = False
+
+    def Setup():
+        if not Events._setup:
+            Events._setup = True
+
+            Events.wake = Delegate()
+            Events.sleep = Delegate()
+
+#app.register("ready", Events.Setup)
 Events.Setup()
 
 mod = Module()
