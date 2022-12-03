@@ -4,6 +4,9 @@ from talon import Module, app
 class Events():
 
     _setup = False
+    wake = Delegate()
+    sleep = Delegate()
+    change_vim_mode = Delegate()
 
     def Setup():
         if not Events._setup:
@@ -11,9 +14,10 @@ class Events():
 
             Events.wake = Delegate()
             Events.sleep = Delegate()
+            Events.changeVimMode = Delegate()
 
 #app.register("ready", Events.Setup)
-Events.Setup()
+#Events.Setup()
 
 mod = Module()
 
