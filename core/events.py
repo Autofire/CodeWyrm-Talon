@@ -6,7 +6,7 @@ class Events():
     _setup = False
     wake = Delegate()
     sleep = Delegate()
-    change_vim_mode = Delegate()
+    #change_vim_mode = Delegate()
 
     def Setup():
         if not Events._setup:
