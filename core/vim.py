@@ -88,6 +88,9 @@ for mode in Vim.Mode:
     mode_map[mode.name] = mode.name
 
 ctx.lists["user.vim_mode"] = mode_map
+
+Teest atest
+Test test
 """
 
 modeNames = [member.name for member in Vim.Mode]
@@ -101,9 +104,28 @@ def vim_mode(m) -> Vim.Mode:
 
 @mod.action_class
 class Actions:
-    def set_vim_mode(s: Vim.Mode):
+    def override_vim_mode(s: Vim.Mode):
         "Jumps to the specified VIM mode immediately, overriding the old setting without any inputs"
         #Vim.set_mode(Vim.Mode[s])
         Vim.set_mode(s)
+    
+    def set_vim_mode(s: str):
+        "Uses the given input to jump to a mode, assuming the mode isn't already active"
+        Vim.set_mode_with(s)
+
+    def insert_raw(text: str):
+        "Inserts text without attempting to do any of the VIM-related overrides"
+        for char in text:
+            actions.key(char)
+    
+    def command(count: str, text: str):
+        "Inserts a command-mode string. This switches back to command mode if needed"
+        if Vim.get_mode() == Vim.Mode.insert:
+            Vim.set_mode_with("esc")
+        Actions.insert_raw(count + text)
+        #Actions.insert_raw(text)
+
+
+
 
 
