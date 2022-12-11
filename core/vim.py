@@ -125,6 +125,26 @@ class Actions:
         Actions.insert_raw(count + text)
         #Actions.insert_raw(text)
 
+    def command(text: str):
+        "Inserts a command-mode string. This switches back to command mode if needed"
+        if Vim.get_mode() == Vim.Mode.insert:
+            Vim.set_mode_with("esc")
+        Actions.insert_raw(text)
+        #Actions.insert_raw(text)
+
+    def command_key(count: str, text: str):
+        "Inserts a command-mode string. This switches back to command mode if needed"
+        if Vim.get_mode() == Vim.Mode.insert:
+            Vim.set_mode_with("esc")
+        Actions.insert_raw(count)
+        actions.key(text)
+
+    def command_key(text: str):
+        "Inserts a command-mode string. This switches back to command mode if needed"
+        if Vim.get_mode() == Vim.Mode.insert:
+            Vim.set_mode_with("esc")
+        actions.key(text)
+
 
 
 

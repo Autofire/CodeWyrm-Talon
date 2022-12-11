@@ -18,6 +18,10 @@ tag: user.wyrm
     user.engine_sleep()
     user.sleep_event()
 
+^talon slumber [<phrase>]$:
+    speech.disable()
+    user.sleep_event()
+
 ^talon sleep [<phrase>]$:
     speech.disable()
     user.sleep_event()
